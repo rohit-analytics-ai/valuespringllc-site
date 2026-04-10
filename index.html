@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ValueSpring LLC — Independent App Studio</title>
+  <meta name="description" content="ValueSpring LLC is an independent app studio building thoughtful digital tools." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1714;
+      --parchment: #f5f0e8;
+      --warm-mid: #c8b89a;
+      --accent: #8b6f47;
+      --accent-deep: #5c4a2a;
+      --muted: #9a8f82;
+      --card-bg: #eeе8dc;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--parchment);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Subtle grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* Decorative top border */
+    .border-top {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--warm-mid), var(--accent), transparent);
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ornament {
+      color: var(--warm-mid);
+      font-size: 1.2rem;
+      letter-spacing: 0.5em;
+      display: block;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.1s;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.25s;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1.15rem;
+      color: var(--muted);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.4s;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 320px;
+      margin: 3rem auto;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.5s;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--warm-mid);
+      opacity: 0.5;
+    }
+
+    .divider span {
+      color: var(--warm-mid);
+      font-size: 1rem;
+      letter-spacing: 0.3em;
+    }
+
+    /* ── APPS SECTION ── */
+    .apps {
+      padding: 2rem 4rem 5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.55s;
+    }
+
+    .app-card {
+      border: 1px solid rgba(139, 111, 71, 0.2);
+      border-radius: 2px;
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      background: rgba(255,255,255,0.35);
+      backdrop-filter: blur(4px);
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.65s;
+    }
+
+    .app-card:hover {
+      border-color: rgba(139, 111, 71, 0.5);
+      background: rgba(255,255,255,0.55);
+      transform: translateY(-2px);
+    }
+
+    .app-info h2 {
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .app-info h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .app-tag {
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(139, 111, 71, 0.08);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    .app-desc {
+      margin-top: 0.8rem;
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 380px;
+    }
+
+    .app-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid rgba(139, 111, 71, 0.3);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .app-link:hover {
+      color: var(--accent-deep);
+      border-color: var(--accent-deep);
+    }
+
+    .app-link svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.2s;
+    }
+
+    .app-link:hover svg { transform: translateX(3px); }
+
+    .app-badge {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #2c1f0e, #5c3d1e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 8px 24px rgba(92, 61, 30, 0.25);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(139, 111, 71, 0.15);
+      padding: 2.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .apps { padding: 1rem 1.5rem 4rem; }
+      .app-card { flex-direction: column; align-items: flex-start; padding: 1.8rem; }
+      .app-badge { width: 60px; height: 60px; font-size: 1.5rem; border-radius: 14px; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="border-top"></div>
+
+  <nav>
+    <span class="nav-logo">ValueSpring LLC</span>
+    <a href="mailto:hello@valuespringllc.com">info@valuespringllc.com</a>
+  </nav>
+
+  <section class="hero">
+    <span class="ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+    <h1>Thoughtful apps,<br><em>carefully made.</em></h1>
+    <p class="hero-sub">An independent studio building digital tools with intention.</p>
+    <div class="divider"><span>✦</span></div>
+  </section>
+
+  <section class="apps">
+    <p class="section-label">Our Apps</p>
+
+    <div class="app-card">
+      <div class="app-info">
+        <h2>Kundali<em>Scribe</em></h2>
+        <span class="app-tag">Vedic Astrology · AI Reports</span>
+        <p class="app-desc">
+          AI-generated Vedic birth chart reports. Your kundali interpreted through the ancient lens of Jyotish astrology — personalised, precise, delivered to your inbox.
+        </p>
+        <a href="https://kundaliscribe.com" class="app-link" target="_blank" rel="noopener">
+          Visit KundaliScribe
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-copy">© 2026 ValueSpring LLC. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="mailto:info@valuespringllc.com">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
