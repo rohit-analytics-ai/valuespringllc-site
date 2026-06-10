@@ -16,11 +16,9 @@
       --accent: #8b6f47;
       --accent-deep: #5c4a2a;
       --muted: #9a8f82;
-      --card-bg: #eeе8dc;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -33,18 +31,13 @@
       overflow-x: hidden;
     }
 
-    /* Subtle grain overlay */
     body::before {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.5;
+      pointer-events: none; z-index: 0; opacity: 0.5;
     }
 
-    /* Decorative top border */
     .border-top {
       height: 3px;
       background: linear-gradient(90deg, transparent, var(--accent), var(--warm-mid), var(--accent), transparent);
@@ -52,255 +45,144 @@
 
     /* ── NAV ── */
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 4rem;
-      position: relative;
-      z-index: 1;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 4rem; position: relative; z-index: 1;
     }
-
     .nav-logo {
-      font-size: 1.1rem;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+      font-family: 'DM Mono', monospace; font-size: 0.8rem;
+      font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--accent-deep);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
     }
-
     nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      transition: color 0.2s;
+      color: var(--muted); text-decoration: none;
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      letter-spacing: 0.1em; transition: color 0.2s;
     }
-
     nav a:hover { color: var(--accent); }
 
     /* ── HERO ── */
     .hero {
-      text-align: center;
-      padding: 5rem 2rem 4rem;
-      position: relative;
-      z-index: 1;
+      text-align: center; padding: 5rem 2rem 4rem;
+      position: relative; z-index: 1;
     }
-
     .ornament {
-      color: var(--warm-mid);
-      font-size: 1.2rem;
-      letter-spacing: 0.5em;
-      display: block;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.1s;
+      color: var(--warm-mid); font-size: 1.2rem; letter-spacing: 0.5em;
+      display: block; margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.8s ease forwards 0.1s;
     }
-
     h1 {
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.25s;
+      font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300;
+      line-height: 1.05; letter-spacing: -0.01em; color: var(--ink);
+      opacity: 0; animation: fadeUp 0.9s ease forwards 0.25s;
     }
-
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
+    h1 em { font-style: italic; color: var(--accent); }
     .hero-sub {
-      margin-top: 1.5rem;
-      font-size: 1.15rem;
-      color: var(--muted);
-      font-weight: 300;
-      letter-spacing: 0.02em;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-      opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.4s;
+      margin-top: 1.5rem; font-size: 1.15rem; color: var(--muted);
+      font-weight: 300; letter-spacing: 0.02em;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+      opacity: 0; animation: fadeUp 0.9s ease forwards 0.4s;
     }
-
     .divider {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      max-width: 320px;
-      margin: 3rem auto;
-      opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.5s;
+      display: flex; align-items: center; gap: 1rem;
+      max-width: 320px; margin: 3rem auto;
+      opacity: 0; animation: fadeUp 0.9s ease forwards 0.5s;
     }
-
     .divider::before, .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--warm-mid);
-      opacity: 0.5;
+      content: ''; flex: 1; height: 1px;
+      background: var(--warm-mid); opacity: 0.5;
     }
-
-    .divider span {
-      color: var(--warm-mid);
-      font-size: 1rem;
-      letter-spacing: 0.3em;
-    }
+    .divider span { color: var(--warm-mid); font-size: 1rem; letter-spacing: 0.3em; }
 
     /* ── APPS SECTION ── */
     .apps {
       padding: 2rem 4rem 5rem;
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
+      max-width: 960px; margin: 0 auto; position: relative; z-index: 1;
     }
-
     .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-align: center;
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.55s;
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+      text-align: center; margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.9s ease forwards 0.55s;
     }
 
+    /* ── APP CARD ── */
     .app-card {
-      border: 1px solid rgba(139, 111, 71, 0.2);
-      border-radius: 2px;
-      padding: 2.5rem 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      background: rgba(255,255,255,0.35);
-      backdrop-filter: blur(4px);
+      border: 1px solid rgba(139, 111, 71, 0.2); border-radius: 2px;
+      padding: 2.5rem 3rem; display: flex; align-items: center;
+      justify-content: space-between; gap: 2rem;
+      background: rgba(255,255,255,0.35); backdrop-filter: blur(4px);
       transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      margin-bottom: 1.25rem;
       opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.65s;
     }
-
+    .app-card:nth-child(2) { animation: fadeUp 0.9s ease forwards 0.65s; }
+    .app-card:nth-child(3) { animation: fadeUp 0.9s ease forwards 0.75s; }
+    .app-card:nth-child(4) { animation: fadeUp 0.9s ease forwards 0.85s; }
     .app-card:hover {
       border-color: rgba(139, 111, 71, 0.5);
       background: rgba(255,255,255,0.55);
       transform: translateY(-2px);
     }
-
     .app-info h2 {
-      font-size: 2rem;
-      font-weight: 400;
-      color: var(--ink);
-      letter-spacing: -0.01em;
+      font-size: 2rem; font-weight: 400; color: var(--ink); letter-spacing: -0.01em;
     }
-
-    .app-info h2 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
+    .app-info h2 em { font-style: italic; color: var(--accent); }
     .app-tag {
-      display: inline-block;
-      margin-top: 0.4rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      background: rgba(139, 111, 71, 0.08);
-      padding: 0.2rem 0.6rem;
-      border-radius: 2px;
+      display: inline-block; margin-top: 0.4rem;
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+      background: rgba(139, 111, 71, 0.08); padding: 0.2rem 0.6rem; border-radius: 2px;
     }
-
     .app-desc {
-      margin-top: 0.8rem;
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 380px;
+      margin-top: 0.8rem; font-size: 1rem; color: var(--muted);
+      line-height: 1.6; max-width: 420px;
     }
-
-    .app-link {
-      display: inline-flex;
+    .app-links {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem;
       align-items: center;
-      gap: 0.5rem;
-      margin-top: 1.2rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      border-bottom: 1px solid rgba(139, 111, 71, 0.3);
-      padding-bottom: 1px;
-      transition: color 0.2s, border-color 0.2s;
     }
-
-    .app-link:hover {
-      color: var(--accent-deep);
-      border-color: var(--accent-deep);
+    .app-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--accent); text-decoration: none;
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.1em; border-bottom: 1px solid rgba(139, 111, 71, 0.3);
+      padding-bottom: 1px; transition: color 0.2s, border-color 0.2s;
     }
-
-    .app-link svg {
-      width: 12px;
-      height: 12px;
-      transition: transform 0.2s;
-    }
-
+    .app-link:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
+    .app-link svg { width: 11px; height: 11px; transition: transform 0.2s; }
     .app-link:hover svg { transform: translateX(3px); }
+    .app-link-sep {
+      color: var(--warm-mid); font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; opacity: 0.5;
+    }
 
     .app-badge {
-      flex-shrink: 0;
-      width: 80px;
-      height: 80px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #2c1f0e, #5c3d1e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-shrink: 0; width: 80px; height: 80px; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
       font-size: 2rem;
-      box-shadow: 0 8px 24px rgba(92, 61, 30, 0.25);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
+    .badge-ks   { background: linear-gradient(135deg, #2c1f0e, #5c3d1e); }
+    .badge-fd   { background: linear-gradient(135deg, #1a0c06, #4a1a0a); }
+    .badge-fytvio { background: linear-gradient(135deg, #0B1020, #0d2b22); }
 
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid rgba(139, 111, 71, 0.15);
       padding: 2.5rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-      flex-wrap: wrap;
-      gap: 1rem;
+      display: flex; justify-content: space-between; align-items: center;
+      position: relative; z-index: 1; flex-wrap: wrap; gap: 1rem;
     }
-
     .footer-copy {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      color: var(--muted); letter-spacing: 0.05em;
     }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
-
+    .footer-links { display: flex; gap: 2rem; }
     .footer-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      color: var(--muted); text-decoration: none;
+      letter-spacing: 0.05em; transition: color 0.2s;
     }
-
     .footer-links a:hover { color: var(--accent); }
 
     /* ── ANIMATIONS ── */
@@ -325,7 +207,7 @@
 
   <nav>
     <span class="nav-logo">ValueSpring LLC</span>
-    <a href="mailto:hello@valuespringllc.com">info@valuespringllc.com</a>
+    <a href="mailto:info@valuespringllc.com">info@valuespringllc.com</a>
   </nav>
 
   <section class="hero">
@@ -338,19 +220,80 @@
   <section class="apps">
     <p class="section-label">Our Apps</p>
 
+    <!-- Fytvio -->
+    <div class="app-card">
+      <div class="app-info">
+        <h2>Fyt<em>vio</em></h2>
+        <span class="app-tag">Health &amp; Fitness · AI Coaching · iOS</span>
+        <p class="app-desc">
+          AI-powered performance coaching for athletes. Connects Apple Health, Strava, and Garmin to deliver a daily readiness score and personalised coaching powered by Claude AI.
+        </p>
+        <div class="app-links">
+          <a href="https://fytvio.com" class="app-link" target="_blank" rel="noopener">
+            fytvio.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <span class="app-link-sep">·</span>
+          <a href="https://apps.apple.com/app/fytvio/id0000000000" class="app-link" target="_blank" rel="noopener">
+            App Store
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="app-badge badge-fytvio">🏃</div>
+    </div>
+
+    <!-- FileDuel -->
+    <div class="app-card">
+      <div class="app-info">
+        <h2>File<em>Duel</em></h2>
+        <span class="app-tag">Productivity · Document Comparison · iOS &amp; Android</span>
+        <p class="app-desc">
+          Compare any two files side-by-side — text, PDF, Excel, code, images. Every addition, deletion, and edit highlighted instantly. 100% on-device, no uploads, no account required.
+        </p>
+        <div class="app-links">
+          <a href="https://fileduel.com" class="app-link" target="_blank" rel="noopener">
+            fileduel.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <span class="app-link-sep">·</span>
+          <a href="https://apps.apple.com/app/fileduel/id6746649613" class="app-link" target="_blank" rel="noopener">
+            App Store
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <span class="app-link-sep">·</span>
+          <a href="https://play.google.com/store/apps/details?id=com.fileduel.app" class="app-link" target="_blank" rel="noopener">
+            Google Play
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="app-badge badge-fd">⚔️</div>
+    </div>
+
+    <!-- KundaliScribe -->
     <div class="app-card">
       <div class="app-info">
         <h2>Kundali<em>Scribe</em></h2>
-        <span class="app-tag">Vedic Astrology · AI Reports</span>
+        <span class="app-tag">Vedic Astrology · AI Reports · Android</span>
         <p class="app-desc">
           AI-generated Vedic birth chart reports. Your kundali interpreted through the ancient lens of Jyotish astrology — personalised, precise, delivered to your inbox.
         </p>
-        <a href="https://kundaliscribe.com" class="app-link" target="_blank" rel="noopener">
-          Visit KundaliScribe
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="app-links">
+          <a href="https://kundaliscribe.com" class="app-link" target="_blank" rel="noopener">
+            kundaliscribe.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <span class="app-link-sep">·</span>
+          <a href="https://play.google.com/store/apps/details?id=com.kundaliscribe.app" class="app-link" target="_blank" rel="noopener">
+            Google Play
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
       </div>
+      <div class="app-badge badge-ks">🔮</div>
     </div>
+
   </section>
 
   <footer>
