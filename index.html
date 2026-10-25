@@ -3,8 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ValueSpring LLC — Independent App Studio</title>
-  <meta name="description" content="ValueSpring LLC is an independent app studio building thoughtful digital tools." />
+  <title>ValueSpring LLC · Independent studio for apps and books</title>
+  <meta name="description" content="ValueSpring LLC is an independent studio that builds a small number of apps and books: Fytvio, FileDuel, KundaliScribe and the book Fund, Fix or Stop." />
+  <link rel="canonical" href="https://valuespringllc.com/" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#f5f0e8" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ValueSpring LLC" />
+  <meta property="og:title" content="ValueSpring LLC" />
+  <meta property="og:description" content="Thoughtful apps, carefully made." />
+  <meta property="og:url" content="https://valuespringllc.com/" />
+  <meta property="og:image" content="https://valuespringllc.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"ValueSpring LLC","url":"https://valuespringllc.com/","email":"info@valuespringllc.com","logo":"https://valuespringllc.com/icons/valuespring.png"}
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
@@ -15,17 +36,18 @@
       --warm-mid: #c8b89a;
       --accent: #8b6f47;
       --accent-deep: #5c4a2a;
-      --muted: #9a8f82;
+      --muted: #6f655a;
+      --line: rgba(139, 111, 71, 0.2);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
 
     body {
       background-color: var(--parchment);
       color: var(--ink);
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 300;
+      font-weight: 400;
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
@@ -38,6 +60,15 @@
       pointer-events: none; z-index: 0; opacity: 0.5;
     }
 
+    a:focus-visible { outline: 2px solid var(--accent-deep); outline-offset: 3px; border-radius: 2px; }
+
+    .skip {
+      position: absolute; left: -9999px; top: 0; z-index: 10;
+      background: var(--accent-deep); color: var(--parchment); padding: 0.6rem 1rem;
+      font-family: 'DM Mono', monospace; font-size: 0.75rem;
+    }
+    .skip:focus { left: 1rem; top: 1rem; }
+
     .border-top {
       height: 3px;
       background: linear-gradient(90deg, transparent, var(--accent), var(--warm-mid), var(--accent), transparent);
@@ -45,47 +76,44 @@
 
     /* ── NAV ── */
     nav {
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
       padding: 1.5rem 4rem; position: relative; z-index: 1;
     }
     .nav-logo {
       font-family: 'DM Mono', monospace; font-size: 0.8rem;
       font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--accent-deep);
+      color: var(--accent-deep); text-decoration: none;
     }
-    nav a {
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
       color: var(--muted); text-decoration: none;
       font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.1em; transition: color 0.2s;
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
     }
-    nav a:hover { color: var(--accent); }
+    .nav-links a:hover { color: var(--accent); }
 
     /* ── HERO ── */
     .hero {
-      text-align: center; padding: 5rem 2rem 4rem;
+      text-align: center; padding: 5rem 2rem 3rem;
       position: relative; z-index: 1;
     }
     .ornament {
       color: var(--warm-mid); font-size: 1.2rem; letter-spacing: 0.5em;
       display: block; margin-bottom: 1.5rem;
-      opacity: 0; animation: fadeUp 0.8s ease forwards 0.1s;
     }
     h1 {
       font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300;
       line-height: 1.05; letter-spacing: -0.01em; color: var(--ink);
-      opacity: 0; animation: fadeUp 0.9s ease forwards 0.25s;
     }
     h1 em { font-style: italic; color: var(--accent); }
     .hero-sub {
-      margin-top: 1.5rem; font-size: 1.15rem; color: var(--muted);
-      font-weight: 300; letter-spacing: 0.02em;
-      max-width: 480px; margin-left: auto; margin-right: auto;
-      opacity: 0; animation: fadeUp 0.9s ease forwards 0.4s;
+      margin-top: 1.5rem; font-size: 1.2rem; color: var(--muted);
+      letter-spacing: 0.02em;
+      max-width: 520px; margin-left: auto; margin-right: auto;
     }
     .divider {
       display: flex; align-items: center; gap: 1rem;
-      max-width: 320px; margin: 3rem auto;
-      opacity: 0; animation: fadeUp 0.9s ease forwards 0.5s;
+      max-width: 320px; margin: 3rem auto 0;
     }
     .divider::before, .divider::after {
       content: ''; flex: 1; height: 1px;
@@ -93,49 +121,44 @@
     }
     .divider span { color: var(--warm-mid); font-size: 1rem; letter-spacing: 0.3em; }
 
-    /* ── APPS SECTION ── */
-    .apps {
-      padding: 2rem 4rem 5rem;
+    /* ── SECTIONS ── */
+    .section {
+      padding: 3rem 4rem 2rem;
       max-width: 960px; margin: 0 auto; position: relative; z-index: 1;
     }
     .section-label {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
       letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
-      text-align: center; margin-bottom: 2.5rem;
-      opacity: 0; animation: fadeUp 0.9s ease forwards 0.55s;
+      text-align: center; margin-bottom: 2.5rem; font-weight: 400;
     }
 
-    /* ── APP CARD ── */
+    /* ── CARDS ── */
     .app-card {
-      border: 1px solid rgba(139, 111, 71, 0.2); border-radius: 2px;
+      border: 1px solid var(--line); border-radius: 2px;
       padding: 2.5rem 3rem; display: flex; align-items: center;
       justify-content: space-between; gap: 2rem;
-      background: rgba(255,255,255,0.35); backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.4);
       transition: border-color 0.3s, background 0.3s, transform 0.3s;
       margin-bottom: 1.25rem;
-      opacity: 0;
     }
-    .app-card:nth-child(2) { animation: fadeUp 0.9s ease forwards 0.65s; }
-    .app-card:nth-child(3) { animation: fadeUp 0.9s ease forwards 0.75s; }
-    .app-card:nth-child(4) { animation: fadeUp 0.9s ease forwards 0.85s; }
     .app-card:hover {
       border-color: rgba(139, 111, 71, 0.5);
-      background: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.6);
       transform: translateY(-2px);
     }
-    .app-info h2 {
+    .app-info h3 {
       font-size: 2rem; font-weight: 400; color: var(--ink); letter-spacing: -0.01em;
     }
-    .app-info h2 em { font-style: italic; color: var(--accent); }
+    .app-info h3 em { font-style: italic; color: var(--accent); }
     .app-tag {
       display: inline-block; margin-top: 0.4rem;
-      font-family: 'DM Mono', monospace; font-size: 0.65rem;
-      letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
       background: rgba(139, 111, 71, 0.08); padding: 0.2rem 0.6rem; border-radius: 2px;
     }
     .app-desc {
-      margin-top: 0.8rem; font-size: 1rem; color: var(--muted);
-      line-height: 1.6; max-width: 420px;
+      margin-top: 0.8rem; font-size: 1.1rem; color: var(--muted);
+      line-height: 1.6; max-width: 460px;
     }
     .app-links {
       display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem;
@@ -143,193 +166,229 @@
     }
     .app-link {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      color: var(--accent); text-decoration: none;
-      font-family: 'DM Mono', monospace; font-size: 0.7rem;
-      letter-spacing: 0.1em; border-bottom: 1px solid rgba(139, 111, 71, 0.3);
+      color: var(--accent-deep); text-decoration: none;
+      font-family: 'DM Mono', monospace; font-size: 0.74rem;
+      letter-spacing: 0.08em; border-bottom: 1px solid rgba(139, 111, 71, 0.35);
       padding-bottom: 1px; transition: color 0.2s, border-color 0.2s;
     }
-    .app-link:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
+    .app-link:hover { color: var(--accent); border-color: var(--accent); }
     .app-link svg { width: 11px; height: 11px; transition: transform 0.2s; }
     .app-link:hover svg { transform: translateX(3px); }
     .app-link-sep {
       color: var(--warm-mid); font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; opacity: 0.5;
+      font-size: 0.7rem;
     }
+    .app-legal { margin-top: 0.8rem; display: flex; gap: 1.1rem; flex-wrap: wrap; }
+    .app-legal a {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.06em;
+      color: var(--muted); text-decoration: none;
+    }
+    .app-legal a:hover { color: var(--accent); text-decoration: underline; }
 
     .app-badge {
-      flex-shrink: 0; width: 80px; height: 80px; border-radius: 18px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      flex-shrink: 0; width: 88px; height: 88px; border-radius: 20px;
+      overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
-    .badge-ks   { background: linear-gradient(135deg, #2c1f0e, #5c3d1e); }
-    .badge-fd   { background: linear-gradient(135deg, #1a0c06, #4a1a0a); }
-    .badge-fytvio { background: linear-gradient(135deg, #0B1020, #0d2b22); }
+    .app-badge img { width: 100%; height: 100%; display: block; }
     .book-cover {
       flex-shrink: 0; width: 96px; height: 154px; border-radius: 3px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.18); display: block;
     }
 
+    /* ── ABOUT / CONTACT ── */
+    .prose {
+      max-width: 620px; margin: 0 auto; text-align: center;
+      font-size: 1.3rem; line-height: 1.7; color: var(--ink);
+    }
+    .prose + .prose { margin-top: 1rem; }
+    .prose .soft { color: var(--muted); font-size: 1.1rem; }
+    .contact-mail {
+      display: inline-block; margin-top: 1.2rem;
+      font-family: 'DM Mono', monospace; font-size: 0.9rem; letter-spacing: 0.06em;
+      color: var(--accent-deep); text-decoration: none;
+      border-bottom: 1px solid rgba(139, 111, 71, 0.35); padding-bottom: 2px;
+    }
+    .contact-mail:hover { color: var(--accent); border-color: var(--accent); }
+
     /* ── FOOTER ── */
     footer {
+      margin-top: 4rem;
       border-top: 1px solid rgba(139, 111, 71, 0.15);
       padding: 2.5rem 4rem;
       display: flex; justify-content: space-between; align-items: center;
       position: relative; z-index: 1; flex-wrap: wrap; gap: 1rem;
     }
     .footer-copy {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
       color: var(--muted); letter-spacing: 0.05em;
     }
-    .footer-links { display: flex; gap: 2rem; }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
     .footer-links a {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
       color: var(--muted); text-decoration: none;
       letter-spacing: 0.05em; transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--accent); }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
+    /* ── MOTION: a gentle rise only; content is never hidden ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .rise { animation: rise 0.8s ease both; }
+      .rise.d1 { animation-delay: 0.1s; }
+      .rise.d2 { animation-delay: 0.2s; }
+      .rise.d3 { animation-delay: 0.3s; }
+      @keyframes rise { from { transform: translateY(14px); } to { transform: translateY(0); } }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .app-card, .app-link svg { transition: none; }
+      .app-card:hover { transform: none; }
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      nav { padding: 1.2rem 1.5rem; }
-      .apps { padding: 1rem 1.5rem 4rem; }
-      .app-card { flex-direction: column; align-items: flex-start; padding: 1.8rem; }
-      .app-badge { width: 60px; height: 60px; font-size: 1.5rem; border-radius: 14px; }
+      nav { padding: 1.2rem 1rem; }
+      .nav-links { gap: 1.1rem; }
+      .hero { padding: 3rem 1rem 2rem; }
+      .section { padding: 2rem 1rem 1rem; }
+      .app-card { flex-direction: column-reverse; align-items: flex-start; padding: 1.6rem; }
+      .app-badge { width: 64px; height: 64px; border-radius: 15px; }
       .book-cover { width: 72px; height: 115px; }
-      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+      .prose { font-size: 1.15rem; }
+      footer { padding: 2rem 1rem; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-
+  <a class="skip" href="#main">Skip to content</a>
   <div class="border-top"></div>
 
-  <nav>
-    <span class="nav-logo">ValueSpring LLC</span>
-    <a href="mailto:info@valuespringllc.com">info@valuespringllc.com</a>
+  <nav aria-label="Main">
+    <a class="nav-logo" href="/">ValueSpring LLC</a>
+    <ul class="nav-links">
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <section class="hero">
-    <span class="ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
-    <h1>Thoughtful apps,<br><em>carefully made.</em></h1>
-    <p class="hero-sub">An independent studio building digital tools with intention.</p>
-    <div class="divider"><span>✦</span></div>
-  </section>
+  <header class="hero">
+    <span class="ornament" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</span>
+    <h1 class="rise">Thoughtful apps,<br><em>carefully made.</em></h1>
+    <p class="hero-sub rise d1">An independent studio building digital tools and practical guides with intention.</p>
+    <div class="divider" aria-hidden="true"><span>✦</span></div>
+  </header>
 
-  <section class="apps">
-    <p class="section-label">Our Apps</p>
+  <main id="main">
+    <section class="section" id="apps" aria-labelledby="apps-label">
+      <h2 class="section-label" id="apps-label">Our Apps</h2>
 
-    <!-- Fytvio -->
-    <div class="app-card">
-      <div class="app-info">
-        <h2>Fyt<em>vio</em></h2>
-        <span class="app-tag">Health &amp; Fitness · AI Coaching · iOS</span>
-        <p class="app-desc">
-          AI-powered performance coaching for athletes. Connects Apple Health, Strava, and Garmin to deliver a daily readiness score and personalised coaching powered by Claude AI.
-        </p>
-        <div class="app-links">
-          <a href="https://fytvio.com" class="app-link" target="_blank" rel="noopener">
-            fytvio.com
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <span class="app-link-sep">·</span>
-          <a href="https://apps.apple.com/app/fytvio/id0000000000" class="app-link" target="_blank" rel="noopener">
-            App Store
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+      <article class="app-card rise d1">
+        <div class="app-info">
+          <h3>Fyt<em>vio</em></h3>
+          <span class="app-tag">Health &amp; Fitness · AI Coaching · iOS &amp; Android</span>
+          <p class="app-desc">
+            AI-powered performance coaching for athletes. Connects Apple Health, Strava, and Garmin to deliver a daily readiness score and personalised coaching powered by Claude AI.
+          </p>
+          <div class="app-links">
+            <a href="https://fytvio.com" class="app-link" target="_blank" rel="noopener">fytvio.com <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <span class="app-link-sep" aria-hidden="true">·</span>
+            <a href="https://apps.apple.com/us/app/fytvio/id6776716459" class="app-link" target="_blank" rel="noopener">App Store <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <span class="app-link-sep" aria-hidden="true">·</span>
+            <a href="https://play.google.com/store/apps/details?id=com.fytvio.app" class="app-link" target="_blank" rel="noopener">Google Play <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+          <div class="app-legal">
+            <a href="https://fytvio.com/privacy.html" target="_blank" rel="noopener">Privacy</a>
+            <a href="https://fytvio.com/terms.html" target="_blank" rel="noopener">Terms</a>
+            <a href="mailto:info@valuespringllc.com?subject=Fytvio%20support">Support</a>
+          </div>
         </div>
-      </div>
-      <div class="app-badge badge-fytvio">🏃</div>
-    </div>
+        <div class="app-badge"><img src="/icons/fytvio.png" alt="Fytvio app icon" width="88" height="88" /></div>
+      </article>
 
-    <!-- FileDuel -->
-    <div class="app-card">
-      <div class="app-info">
-        <h2>File<em>Duel</em></h2>
-        <span class="app-tag">Productivity · Document Comparison · iOS &amp; Android</span>
-        <p class="app-desc">
-          Compare any two files side-by-side — text, PDF, Excel, code, images. Every addition, deletion, and edit highlighted instantly. 100% on-device, no uploads, no account required.
-        </p>
-        <div class="app-links">
-          <a href="https://fileduel.com" class="app-link" target="_blank" rel="noopener">
-            fileduel.com
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <span class="app-link-sep">·</span>
-          <a href="https://apps.apple.com/app/fileduel/id6746649613" class="app-link" target="_blank" rel="noopener">
-            App Store
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <span class="app-link-sep">·</span>
-          <a href="https://play.google.com/store/apps/details?id=com.fileduel.app" class="app-link" target="_blank" rel="noopener">
-            Google Play
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+      <article class="app-card rise d2">
+        <div class="app-info">
+          <h3>File<em>Duel</em></h3>
+          <span class="app-tag">Productivity · Document Comparison · iOS &amp; Android</span>
+          <p class="app-desc">
+            Compare any two files side-by-side — text, PDF, Excel, code, images. Every addition, deletion, and edit highlighted instantly. 100% on-device, no uploads, no account required.
+          </p>
+          <div class="app-links">
+            <a href="https://fileduel.com" class="app-link" target="_blank" rel="noopener">fileduel.com <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <span class="app-link-sep" aria-hidden="true">·</span>
+            <a href="https://apps.apple.com/us/app/fileduel/id6766763429" class="app-link" target="_blank" rel="noopener">App Store <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <span class="app-link-sep" aria-hidden="true">·</span>
+            <a href="https://play.google.com/store/apps/details?id=com.fileduel.app" class="app-link" target="_blank" rel="noopener">Google Play <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+          <div class="app-legal">
+            <a href="https://fileduel.com/privacy.html" target="_blank" rel="noopener">Privacy</a>
+            <a href="https://fileduel.com/terms.html" target="_blank" rel="noopener">Terms</a>
+            <a href="mailto:info@valuespringllc.com?subject=FileDuel%20support">Support</a>
+          </div>
         </div>
-      </div>
-      <div class="app-badge badge-fd">⚔️</div>
-    </div>
+        <div class="app-badge"><img src="/icons/fileduel.png" alt="FileDuel app icon" width="88" height="88" /></div>
+      </article>
 
-    <!-- KundaliScribe -->
-    <div class="app-card">
-      <div class="app-info">
-        <h2>Kundali<em>Scribe</em></h2>
-        <span class="app-tag">Vedic Astrology · AI Reports · Android</span>
-        <p class="app-desc">
-          AI-generated Vedic birth chart reports. Your kundali interpreted through the ancient lens of Jyotish astrology — personalised, precise, delivered to your inbox.
-        </p>
-        <div class="app-links">
-          <a href="https://kundaliscribe.com" class="app-link" target="_blank" rel="noopener">
-            kundaliscribe.com
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <span class="app-link-sep">·</span>
-          <a href="https://play.google.com/store/apps/details?id=com.kundaliscribe.app" class="app-link" target="_blank" rel="noopener">
-            Google Play
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+      <article class="app-card rise d3">
+        <div class="app-info">
+          <h3>Kundali<em>Scribe</em></h3>
+          <span class="app-tag">Vedic Astrology · AI Reports · Android</span>
+          <p class="app-desc">
+            AI-generated Vedic birth chart reports. Your kundali interpreted through the ancient lens of Jyotish astrology — personalised, precise, delivered to your inbox.
+          </p>
+          <div class="app-links">
+            <a href="https://kundaliscribe.com" class="app-link" target="_blank" rel="noopener">kundaliscribe.com <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <span class="app-link-sep" aria-hidden="true">·</span>
+            <a href="https://play.google.com/store/apps/details?id=com.kundaliscribe.app" class="app-link" target="_blank" rel="noopener">Google Play <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+          <div class="app-legal">
+            <a href="https://kundaliscribe.com/privacy.html" target="_blank" rel="noopener">Privacy</a>
+            <a href="https://kundaliscribe.com/terms.html" target="_blank" rel="noopener">Terms</a>
+            <a href="mailto:info@valuespringllc.com?subject=KundaliScribe%20support">Support</a>
+          </div>
         </div>
-      </div>
-      <div class="app-badge badge-ks">🔮</div>
-    </div>
+        <div class="app-badge"><img src="/icons/kundaliscribe.png" alt="KundaliScribe app icon" width="88" height="88" /></div>
+      </article>
+    </section>
 
-  </section>
+    <section class="section" id="books" aria-labelledby="books-label">
+      <h2 class="section-label" id="books-label">Our Books</h2>
 
-  <section class="apps">
-    <p class="section-label">Our Books</p>
-
-    <!-- Fund, Fix or Stop -->
-    <div class="app-card">
-      <div class="app-info">
-        <h2>Fund, Fix <em>or Stop</em></h2>
-        <span class="app-tag">Book · AI Governance · Kindle</span>
-        <p class="app-desc">
-          A practical guide to governing AI investments and proving their value. Free editable templates for every chapter.
-        </p>
-        <div class="app-links">
-          <a href="/fund-fix-or-stop/" class="app-link">
-            Templates
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+      <article class="app-card">
+        <div class="app-info">
+          <h3>Fund, Fix <em>or Stop</em></h3>
+          <span class="app-tag">Book · AI Governance · Kindle</span>
+          <p class="app-desc">
+            A practical guide to governing AI investments and proving their value. Free editable templates for every chapter.
+          </p>
+          <div class="app-links">
+            <a href="/fund-fix-or-stop/" class="app-link">Templates <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
         </div>
-      </div>
-      <img class="book-cover" src="/fund-fix-or-stop/cover.jpg" alt="Cover of Fund, Fix or Stop by Rohit Verma" width="96" height="154" />
-    </div>
+        <img class="book-cover" src="/fund-fix-or-stop/cover.jpg" alt="Cover of Fund, Fix or Stop by Rohit Verma" width="96" height="154" />
+      </article>
+    </section>
 
-  </section>
+    <section class="section" id="about" aria-labelledby="about-label">
+      <h2 class="section-label" id="about-label">About</h2>
+      <p class="prose">ValueSpring LLC is an independent studio. It builds a small number of apps and books, each designed to do one job well.</p>
+      <p class="prose"><span class="soft">Each app has its own site, privacy policy and terms, linked from its card above.</span></p>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-label">
+      <h2 class="section-label" id="contact-label">Contact</h2>
+      <p class="prose">Questions, support or feedback are welcome.<br><span class="soft">For help with an app, please include the app name and your device.</span></p>
+      <p class="prose"><a class="contact-mail" href="mailto:info@valuespringllc.com">info@valuespringllc.com</a></p>
+    </section>
+  </main>
 
   <footer>
     <span class="footer-copy">© 2026 ValueSpring LLC. All rights reserved.</span>
     <div class="footer-links">
+      <a href="#apps">Apps</a>
+      <a href="#books">Books</a>
       <a href="mailto:info@valuespringllc.com">Contact</a>
     </div>
   </footer>
-
 </body>
 </html>
