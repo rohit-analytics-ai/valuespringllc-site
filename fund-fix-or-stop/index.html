@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fund, Fix or Stop: Templates · ValueSpring LLC</title>
+  <meta name="description" content="Editable Excel templates for the book Fund, Fix or Stop: A Practical Guide to Governing AI Investments and Proving Their Value." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1714;
+      --parchment: #f5f0e8;
+      --warm-mid: #c8b89a;
+      --accent: #8b6f47;
+      --accent-deep: #5c4a2a;
+      --muted: #6f655a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--parchment); color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400;
+      font-size: 1.15rem; line-height: 1.6; min-height: 100vh; overflow-x: hidden;
+    }
+    .border-top { height: 3px; background: linear-gradient(90deg, transparent, var(--accent), var(--warm-mid), var(--accent), transparent); }
+    nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.5rem 4rem; }
+    .nav-logo {
+      font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent-deep); text-decoration: none;
+    }
+    nav a.mail { color: var(--muted); text-decoration: none; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; }
+    nav a:hover { color: var(--accent); }
+    main { max-width: 760px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    .intro { display: flex; gap: 2.5rem; align-items: center; margin-bottom: 2.5rem; }
+    .cover { flex-shrink: 0; width: 150px; height: 240px; border-radius: 3px; box-shadow: 0 10px 28px rgba(0,0,0,0.2); }
+    .label {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    h1 { font-size: clamp(2.4rem, 6vw, 3.4rem); font-weight: 300; line-height: 1.05; margin: 0.4rem 0 0.8rem; }
+    h1 em { font-style: italic; color: var(--accent); }
+    .sub { color: var(--muted); }
+    .download {
+      border: 1px solid rgba(139, 111, 71, 0.25); border-radius: 2px; padding: 1.8rem 2rem;
+      background: rgba(255,255,255,0.45); margin-bottom: 2.5rem;
+    }
+    .btn {
+      display: inline-block; background: var(--accent-deep); color: var(--parchment); text-decoration: none;
+      font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; padding: 0.9rem 1.4rem; border-radius: 2px;
+    }
+    .btn:hover { background: var(--accent); }
+    .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+    .meta { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); margin-top: 0.9rem; letter-spacing: 0.04em; }
+    h2 { font-size: 1.7rem; font-weight: 400; margin: 2.2rem 0 0.6rem; }
+    ul { padding-left: 1.3rem; }
+    li { margin: 0.25rem 0; }
+    p + p { margin-top: 0.8rem; }
+    .note { font-size: 1rem; color: var(--muted); margin-top: 2.5rem; }
+    footer {
+      border-top: 1px solid rgba(139, 111, 71, 0.15); padding: 2.5rem 4rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    footer span, footer a { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; }
+    footer a:hover { color: var(--accent); }
+    @media (max-width: 640px) {
+      nav { padding: 1.2rem 1rem; }
+      main { padding: 1rem 1rem 3rem; }
+      .intro { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .cover { width: 120px; height: 192px; }
+      .download { padding: 1.4rem; }
+      footer { padding: 2rem 1rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="border-top"></div>
+  <nav>
+    <a class="nav-logo" href="/">ValueSpring LLC</a>
+    <a class="mail" href="mailto:info@valuespringllc.com">info@valuespringllc.com</a>
+  </nav>
+
+  <main>
+    <div class="intro">
+      <img class="cover" src="cover.jpg" alt="Cover of Fund, Fix or Stop by Rohit Verma" width="150" height="240" />
+      <div>
+        <span class="label">Book templates</span>
+        <h1>Fund, Fix <em>or Stop</em></h1>
+        <p class="sub">Editable versions of the templates in <em>Fund, Fix or Stop: A Practical Guide to Governing AI Investments and Proving Their Value</em>, by Rohit Verma.</p>
+      </div>
+    </div>
+
+    <div class="download">
+      <a class="btn" href="Fund_Fix_or_Stop_Templates.xlsx" download>Download the templates (Excel)</a>
+      <p class="meta">Fund_Fix_or_Stop_Templates.xlsx · one workbook, about 40 KB · no sign-up</p>
+    </div>
+
+    <h2>What is in the workbook</h2>
+    <ul>
+      <li>Self-assessment</li>
+      <li>AI inventory entry and intake and tiering form</li>
+      <li>Explore entry scorecard and gate decision record</li>
+      <li>Threshold sheet with the status rules, and the five-test scorecard</li>
+      <li>Value measurement and leakage, and the monthly cost report</li>
+      <li>Leadership page and Red decision memo</li>
+      <li>General-purpose tool value plan and vendor checklist</li>
+      <li>90-day plan tracker</li>
+      <li>Three completed examples: a threshold sheet, a Red decision memo and a value confirmation</li>
+    </ul>
+    <p>Yellow cells are inputs. The other cells calculate, so each sheet can be reused with an organization’s own figures. The completed examples use the book’s fictional bank, and every figure in them is illustrative.</p>
+
+    <h2>Use</h2>
+    <p>Readers may copy and adapt the templates for use within their own organizations. The templates may not be sold or republished.</p>
+
+    <h2>Updates</h2>
+    <p>Appendix B of the book summarizes frameworks and regulations as of October 2026. Changes to that summary, and any corrections to the templates, are listed here.</p>
+    <ul>
+      <li>October 2026: first edition.</li>
+    </ul>
+
+    <p class="note">The book and these templates provide general information about governing AI investments. They are not legal, regulatory, financial or investment advice.</p>
+  </main>
+
+  <footer>
+    <span>© 2026 Rohit Verma.</span>
+    <a href="/">valuespringllc.com</a>
+  </footer>
+</body>
+</html>

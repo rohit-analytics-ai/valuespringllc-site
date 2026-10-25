@@ -165,6 +165,10 @@
     .badge-ks   { background: linear-gradient(135deg, #2c1f0e, #5c3d1e); }
     .badge-fd   { background: linear-gradient(135deg, #1a0c06, #4a1a0a); }
     .badge-fytvio { background: linear-gradient(135deg, #0B1020, #0d2b22); }
+    .book-cover {
+      flex-shrink: 0; width: 96px; height: 154px; border-radius: 3px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18); display: block;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -197,6 +201,7 @@
       .apps { padding: 1rem 1.5rem 4rem; }
       .app-card { flex-direction: column; align-items: flex-start; padding: 1.8rem; }
       .app-badge { width: 60px; height: 60px; font-size: 1.5rem; border-radius: 14px; }
+      .book-cover { width: 72px; height: 115px; }
       footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -292,6 +297,29 @@
         </div>
       </div>
       <div class="app-badge badge-ks">🔮</div>
+    </div>
+
+  </section>
+
+  <section class="apps">
+    <p class="section-label">Our Books</p>
+
+    <!-- Fund, Fix or Stop -->
+    <div class="app-card">
+      <div class="app-info">
+        <h2>Fund, Fix <em>or Stop</em></h2>
+        <span class="app-tag">Book · AI Governance · Kindle</span>
+        <p class="app-desc">
+          A practical guide to governing AI investments and proving their value. Free editable templates for every chapter.
+        </p>
+        <div class="app-links">
+          <a href="/fund-fix-or-stop/" class="app-link">
+            Templates
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <img class="book-cover" src="/fund-fix-or-stop/cover.jpg" alt="Cover of Fund, Fix or Stop by Rohit Verma" width="96" height="154" />
     </div>
 
   </section>
